@@ -25,12 +25,13 @@ class MainActivity : AppCompatActivity() {
         list.layoutManager = LinearLayoutManager(this)
         getNumber()
 
-        swipeRefreshLayout.setColorSchemeResources(R.color.dodgerBlue)
-
-        swipeRefreshLayout.setOnRefreshListener {
-            // Refresh items
-            getNumber()
-            swipeRefreshLayout.isRefreshing = false
+        swipeRefreshLayout.apply {
+            setColorSchemeResources(R.color.dodgerBlue) //set color refresh button
+            //refresh action
+            setOnRefreshListener {
+                getNumber()
+                swipeRefreshLayout.isRefreshing = false //stop refresh / hide button refresh
+            }
         }
     }
 
