@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.number_fact.view.*
 
 class NumberFactAdapter(val context: Context, var numberFact: NumberFact) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-        var view = LayoutInflater.from(context).inflate(R.layout.number_fact, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.number_fact, parent, false)
         return Item(view)
     }
 
@@ -23,7 +23,8 @@ class NumberFactAdapter(val context: Context, var numberFact: NumberFact) : Recy
 
     class Item(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindData(data: NumberFact) {
-            itemView.textNumber.text = "1"
+            itemView.textNumber.text = data.number.toString()
+            itemView.textDescription.text = data.text
         }
     }
 }
