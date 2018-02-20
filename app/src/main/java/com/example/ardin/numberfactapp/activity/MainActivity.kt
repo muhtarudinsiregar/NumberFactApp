@@ -24,7 +24,16 @@ class MainActivity : AppCompatActivity() {
 
         list.layoutManager = LinearLayoutManager(this)
         getNumber()
+
+        swipeRefreshLayout.setColorSchemeResources(R.color.dodgerBlue)
+
+        swipeRefreshLayout.setOnRefreshListener {
+            // Refresh items
+            getNumber()
+            swipeRefreshLayout.isRefreshing = false
+        }
     }
+
 
     private fun getNumber() {
         showLoading()
